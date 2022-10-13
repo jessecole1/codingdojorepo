@@ -1,0 +1,26 @@
+Javascript
+
+What is a variable?
+    - Something we store our value in 
+
+What is a data type? 
+    - defining what kind of data we are storing 
+
+We need to declare what the variable is 
+-- LINE 1 --
+
+What is a string/
+    - series of characters in between quotations 
+
+What is console log? 
+ - open up terminal 
+ - open folder in terminal -> /script.js 
+ - with line 1, if you type in f_name in the terminal the name jesse will show up 
+
+ What is a boolean? 
+    - true or false 
+
+What is an array? 
+    - collection of different data sets 
+    - identified by square brackets 
+-- LINE 13 --

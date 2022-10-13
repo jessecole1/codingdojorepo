@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+/* Main Page Styles */
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    border: solid 1px black;
+    background-color: green;
+    display:flex;
+    flex-direction:column;
+}
+
+.navbar {
+    border: solid 1px black;
+    background-color: yellow;
+}
+.main-content {
+    height:600px;
+    display:flex;
+    justify-content:space-between;
+}
+.column {
+    border: solid 1px black;
+    background-color: blue;
+    display:flex;
+    
+
+}
+a.content-links { 
+    color: black;
+    text-decoration: none;
+    margin-top: 4rem;
+    color: red;
+}
+
+/* BONUS PART */
+
+/* .box{
+    color: aliceblue;
+    background-color:rebeccapurple;
+    width: 125px;
+    height: 125px;
+} */
