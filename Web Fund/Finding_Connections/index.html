@@ -63,28 +63,28 @@
             <!-- connection requests card -->
             <div class="card">
                 <div class="card-header">
-                    <span class="badge">2</span>
+                    <span id="numOfRequests" class="badge">2</span>
                     <h3>Connection Requests</h3>
                 </div>
                 <ul class="card-list">
-                    <li class="card-list-item" id="todd">
+                    <li class="card-list-item" id="todd"  onclick="friendAction(this)">
                         <span>
                             <img src="images/todd-s.jpg" alt="todd" class="avatar-s">
                             Todd E
                         </span>
-                        <span onclick="friendAction()">
-                            <img src="icons/accept-circle.png" alt="accept" class="icon">
-                            <img src="icons/close-circle.png" alt="close" class="icon">
+                        <span>
+                            <img src="icons/accept-circle.png" onclick="addToo()" alt="accept" class="icon join">
+                            <img src="icons/close-circle.png" onclick="subtractToo()" alt="close" class="icon reject">
                         </span>
                     </li>
-                    <li class="card-list-item">
+                    <li class="card-list-item"  onclick="friendAction(this)">
                         <span>
                             <img src="images/phil-s.jpg" alt="phil" class="avatar-s">
                             Phil E
                         </span>
-                        <span onclick="friendAction()">
-                            <img src="icons/accept-circle.png" alt="accept" class="icon">
-                            <img src="icons/close-circle.png" alt="close" class="icon">
+                        <span>
+                            <img src="icons/accept-circle.png" onclick="addToo()" alt="accept" class="icon join">
+                            <img src="icons/close-circle.png" onclick="subtractToo()" alt="close" class="icon reject">
                         </span>
                     </li>
                 </ul>
@@ -93,7 +93,7 @@
             <!-- your connections card -->
             <div class="card">
                 <div class="card-header">
-                    <span class="badge">500+</span>
+                    <span id="badgeTwo" class="badge">500+</span>
                     <h3>Your Connections</h3>
                 </div>
                 <ul class="card-list">
