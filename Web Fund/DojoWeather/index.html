@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="leftnav">
+                <h1>DojoWeather</h1>
+            </div>
+            <div class="rightnav">
+                <ul class="list">
+                    <li><a href="#" onclick="yourChoice(this)" id="choice">Burbank</a></li>
+                    <li><a href="#" onclick="yourChoice(this)" id="choicetwo">Chicago</a></li>
+                    <li><a href="#" onclick="yourChoice(this)" id="choicethree">Dallas</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="title">
+            <div class="lefttitle">
+                <h2>San Jose</h2>
+            </div>
+            <div class="righttitle">
+                <div class="righttitletext">
+                    <span>show temperature in </span>
+                    <select onchange="tempChange()" name="temp" id="tempOption">
+                        <option value="celcius">°C</option>
+                        <option value="farenheit">°F</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="thecards">
+                <h2>Today</h2>
+                <img src="assets/some_rain.png" alt="Some Rain">
+                <span>some rain</span>
+                <div class="degrees">
+                    <span class="leftdegree">24°</span>
+                    <span class="rightdegree">18°</span>
+                </div>
+            </div>
+            <div class="thecards">
+                <h2>Tomorrow</h2>
+                <img src="assets/some_sun.png" alt="Some Sun">
+                <span>some sun</span>
+                <div class="degrees">
+                    <span class="leftdegree">27</span>
+                    <span class="rightdegree">19°</span>
+                </div>
+            </div>
+            <div class="thecards">
+                <h2>Friday</h2>
+                <img src="assets/some_clouds.png" alt="Some Clouds">
+                <span>some clouds</span>
+                <div class="degrees">
+                    <span class="leftdegree">21</span>
+                    <span class="rightdegree">16°</span>
+                </div>
+            </div>
+            <div class="thecards">
+                <h2>Saturday</h2>
+                <img src="assets/some_sun.png" alt="Some Sun">
+                <span>some sun</span>
+                <div class="degrees">
+                    <span class="leftdegree">26</span>
+                    <span class="rightdegree">21°</span>
+                </div>
+            </div>
+        </div>
+        <div class="cookie">
+            <div class="leftcookie">
+                <img class="cookieimg" src="assets/cookie.png" alt="cookie">
+                <div class="cookietext">
+                    <span class="stop">Stop! Cookie time</span>
+                    <span>We use cookies (sadly not the edible ones) to personalize content and ads, to provide social media features and to analyze our traffic. <a href="#">Read more...</a></span>
+                </div>
+            </div>
+            <div class="rightcookie">
+                <button class="accept" onclick="acceptCookie()">I Accept</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
