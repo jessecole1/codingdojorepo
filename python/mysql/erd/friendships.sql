@@ -2,9 +2,7 @@ insert into users (first_name, last_name, created_at, updated_at)
 values ('Amy','Giver',now(),now()),('Big','Bird',now(), now()),('Eli','Byers',now(), now()),('Kermit','The Frog', now(), now()),('Marky','Mark', now(), now()),('Jesse','Cole', now(), now());
 insert into friendships (user_id, friend_id)
 values (1,2),(1,4),(1,6);
-update friendships 
-set created_at = now(), updated_at = now()
-where id = 3;
+update friendships set created_at = now(), updated_at = now() where id = 3;
 select * from friendships;
 insert into friendships (user_id, friend_id)
 values (2,1),(2,3),(2,5);

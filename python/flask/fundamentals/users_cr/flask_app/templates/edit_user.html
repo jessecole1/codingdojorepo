@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/myownstyle.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form class="myform" action="/edit/update" method="post">
+            <input type="hidden" name="id" value="{{user.id}}">
+            <div class="item">
+                <label for="first_name">Edit {{user.first_name}}: </label>
+                <input name="first_name" class="box" type="text" value="{{user.first_name}}">
+            </div>
+            <div class="item">
+                <label for="last_name">Edit {{user.last_name}}:</label>
+                <input name="last_name" class="box" type="text" value="{{user.last_name}}">
+            </div>
+            <div class="item">
+                <label for="email">Edit {{user.email}}: </label>
+                <input name="email" class="box" type="text" value="{{user.email}}">
+            </div>
+            <div class="item submit">
+                <button class="submitbutton">Update</button>
+            </div>
+            <div class="item submit">
+                <button class="homebutton"><a class = "homebutton" href="/">Home</a></button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

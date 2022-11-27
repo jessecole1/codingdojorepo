@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/bootstrap.css') }}">
+</head>
+<body>
+    {% if session['submited'] == False: %}
+    <div class="container-sm border w-50 h-75 mt-5">
+        <h1>Dojo Survey</h1>
+        <form action="/submit" method="post">
+            <div>
+                <label for="name">Your Name: </label>
+                <input name="name" type="text">
+            </div>
+            <div>
+                <label for="location">Dojo Location: </label>
+                <select name="location" id="">
+                    <option value="San Jose">San Jose</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="Chicago">Chicago</option>
+                </select>
+            </div>
+            <div>
+                <label for="language">Favorite Language: </label>
+                <select name="language" id="">
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Python">Python</option>
+                    <option value="C#">C#</option>
+                    <option value="Java">Java</option>
+                </select>
+            </div>
+            <div>
+                <label for="comment">Comment: (optional)</label>
+                <textarea name="comment" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <input type="submit">
+            </div>
+        </form>
+    </div>
+    {% else %}
+    <div>
+        <table>
+            
+        </table>
+    </div>
+    <a href="/clear">hello</a>
+    {% endif %}
+</body>
+</html>

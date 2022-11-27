@@ -1,0 +1,89 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.container {
+    margin: 0 auto;
+    height: 350px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.readContainer {
+    margin: 0 auto;
+    height: 350px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+}
+.homebutton {
+    color: white;
+    background-color: rgb(25,135,83);
+    border-radius: 5px;
+    height: 30px;
+    border:none;
+    text-decoration: none;
+}
+.readlink {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: inherit;
+    width: 80px;
+}
+.myform {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    height: inherit;
+    width: inherit;
+    border: 1px solid rgb(146, 146, 146);
+    border-radius: 10px;
+    padding: 30px;
+}
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: inherit;
+}
+.submit {
+    width: 80px;
+}
+.box {
+    border: 1px solid rgb(146, 146, 146);
+    border-radius: 5px;
+    height: 30px;
+}
+.submitbutton {
+    color: white;
+    background-color: rgb(25,135,83);
+    border-radius: 5px;
+    height: 30px;
+    border:none;
+}
+.tables {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.thetable {
+    height: 200px;
+    border: 2px solid gray;
+    width: 500px;
+}
+.tablehead {
+    height: 38px;
+    background-color: rgb(65, 198, 255);
+}
+.userinfo {
+    font-size: 25px;
+}
+tr:nth-child(even) {
+    background-color: rgb(65, 198, 255);
+}

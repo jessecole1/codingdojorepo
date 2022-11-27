@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/myownstyle.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="tables">
+        <h1>Gathered users/information:</h1>
+        <table class="thetable">
+            <thead class="tablehead">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{user.first_name}}</td>
+                    <td>{{user.last_name}}</td>
+                    <td>{{user.email}}</td>
+                    <td><a href="/user/show/{{user.id}}">Show</a> | <a href="/edit/{{user.id}}">Edit</a> | <a href="/user/delete/{{user.id}}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="item submit">
+            <button class="homebutton"><a class = "homebutton" href="/create_user">Add User</a></button>
+        </div>
+    </div>
+</body>
+</html>

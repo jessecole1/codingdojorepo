@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0 auto;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: 400px;
+        }
+        .winner {
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            border: 2px solid black;
+            background-color: green;
+            width: 200px;
+        }
+        .wrong{
+            border: 2px solid black;
+            background-color: red;
+            height: 100px;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .winNumb {
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            width: 50px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .leaderboard {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            border: 2px solid black;
+            margin-top: 20px;
+            width: 300px;
+            height: 100px;
+        }
+        .leadclass {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Great Number Game!</h1>
+        <p>I'm thinking of a number between 1 and 100</p>
+        <p>Take a guess!</p>
+        <p>Guesses: {{session['count']}}</p>
+        <form action="/guess" method="post">
+            <div>
+                <input type="text" name="guess">
+                <input type="submit">
+            </div>
+        </form>
+        <div>
+            {% if 'guess' in session: %}
+                {% if session['guess'] == session['num'] %}
+                <div class="winner">
+                    <h2>You got it!!!</h2>
+                    <h3>With {{session['count']}} guesses!</h3>
+                    <p><span class="winNumb">{{session['guess']}}</span> was the number!</p>
+                    <a href="/reset"><button>Play Again?</button></a>
+                </div>
+                <div class="leaderboard">
+                    <h2>Join the Leaderboard</h2>
+                    <form class="leadclass" action="/leader" method="post">
+                        <label for="fname">First Name: </label>
+                        <input name="leaderboard" type="text">
+                        <input type="submit">
+                    </form>
+                    <p>Your guesses: {{session['count']}}</p>
+                </div>
+                {% elif session['guess'] < session['num'] %}
+                <div class="wrong">
+                    <h3>Too low...</h3>
+                </div>
+                {% else %}
+                <div class="wrong">
+                    <h3>Too high...</h3>
+                </div>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div>
+            <a href="/reset"><button>Reset</button></a>
+        </div>
+    </div>
+</body>
+</html>
