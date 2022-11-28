@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="dojoNinjaCreateBox">
+            <form class="ninjaForm" action="/ninja/update" method="post">
+                <input type="hidden" name = "id" value="{{ninja.id}}">
+                <table class="ninjaForm">
+                    <tbody class="createNinja">  
+                        <tr>
+                            <td style="width: 200px;"><label for="first_name">Edit First Name: </label></td>
+                            <td style="width: 200px;"><input value="{{ninja.first_name}}" name="first_name"  type="text"></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 200px;"><label for="last_name">Edit Last Name: </label></td>
+                            <td style="width: 200px;"><input value="{{ninja.last_name}}" name="last_name" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 200px;"><label for="age">Edit Age: </label></td>
+                            <td style="width: 200px;"><input value="{{ninja.age}}" name="age" type="text"></td>
+                        </tr>   
+                    </tbody>
+                    <button>Update</button>
+                </table>
+            </form>
+        </div>
+        <a href="/"><button>Home</button></a>
+    </div>
+</body>
+</html>
