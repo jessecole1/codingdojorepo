@@ -25,6 +25,8 @@ def submit():
     session['location'] = request.form['location']
     session['language'] = request.form['language']
     session['comment'] = request.form['comment']
+    session['currentLanguage'] = request.form['currentLanguage']
+    session['known'] = request.form['known']
     # update session variables submission status to true
     session['submited'] = True
     return redirect('/')

@@ -35,6 +35,32 @@
                 </select>
             </div>
             <div>
+                <p>Current language you are learning:</p>
+                <input name="currentLanguage" type="radio" value="HTML">
+                <label for="html">HTML</label>
+                <input name="currentLanguage" type="radio" value="CSS">
+                <label for="css">CSS</label>
+                <input name="currentLanguage" type="radio" value="Python">
+                <label for="python">Python</label>
+                <input name="currentLanguage" type="radio" value="C#">
+                <label for="c#">C#</label>
+                <input name="currentLanguage" type="radio" value="Java">
+                <label for="java">Java</label>
+            </div>
+            <div>
+                <p>Languages you already know:</p>
+                <input type="checkbox" name="known" value="HTML">
+                <label for="known">HTML</label>
+                <input type="checkbox" name="known" value="CSS">
+                <label for="known">CSS</label>
+                <input type="checkbox" name="known" value="Python">
+                <label for="known">Python</label>
+                <input type="checkbox" name="known" value="C#">
+                <label for="known">C#</label>
+                <input type="checkbox" name="known" value="Java">
+                <label for="known">Java</label>
+            </div>
+            <div>
                 <label for="comment">Comment: (optional)</label>
                 <textarea name="comment" id="" cols="30" rows="10"></textarea>
             </div>
@@ -51,6 +77,8 @@
                     <th>Name</th>
                     <th>Dojo Location:</th>
                     <th>Favorite Language:</th>
+                    <th>Current Language:</th>
+                    <th>Known Languages:</th>
                     <th>Comments:</th>
                 </tr>
             </thead>
@@ -59,6 +87,8 @@
                     <td>{{session['name']}}</td>
                     <td>{{session['location']}}</td>
                     <td>{{session['language']}}</td>
+                    <td>{{session['currentLanguage']}}</td>
+                    <td>{{session['known']}}</td>
                     <td>{{session['comment']}}</td>
                 </tr>
             </tbody>
