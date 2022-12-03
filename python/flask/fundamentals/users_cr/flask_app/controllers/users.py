@@ -18,6 +18,10 @@ def create():
 @app.route('/add/user', methods=['POST'])
 def add():
     print(request.form)
+    if not User.validate_user(request.form):
+        return redirect('/create_user')
+    if not User.validate_user_email(request.form):
+        return redirect('/create_user')
     User.save(request.form)
     return redirect('/users')
 

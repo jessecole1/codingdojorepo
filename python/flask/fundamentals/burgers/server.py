@@ -1,4 +1,4 @@
-from flask_app.controllers import burgers
+from flask_app.controllers import burgers, toppings
 # ...server.py
 from flask_app import app
 

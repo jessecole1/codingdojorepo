@@ -36,6 +36,8 @@ kingston = Pet('Kingston','cat',['run','absolute madlad','jump','fetch'])
 # first,last,treats,food,pet
 jesse = Ninja('jesse','cole',['temptations','tuna','chicken'],'cat food',kingston)
 jesse.giveTreat()
+jesse.bathe()
+jesse.feed()
 
 
 # class Pet:

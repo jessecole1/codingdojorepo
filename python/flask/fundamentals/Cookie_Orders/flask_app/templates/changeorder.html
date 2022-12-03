@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="box1 title">
+            <div>
+                <h2>Change Order</h2>
+            </div>
+            <div>
+                <a href="/cookies">Back to Purchases</a>
+            </div>
+        </div>
+        <div class="box3">
+            <form action="">
+                <table>
+                    <tr>
+                        <td><label for="name">Name:</label></td>
+                        <td><input type="text" name="name"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="type">Cookie Type:</label></td>
+                        <td><input type="text" name="type"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="num_of_boxes">Number of Boxes:</label></td>
+                        <td><select name="num_of_boxes" id="">
+                            <option value=""></option>
+                        </select></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

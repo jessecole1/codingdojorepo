@@ -11,6 +11,13 @@
     <div class="container">
         <form class="myform" action="/add/user" method="post">
             <div class="item">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <p class="flashMessage">{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
                 <label for="first_name">First Name: </label>
                 <input name="first_name" class="box" type="text">
             </div>
