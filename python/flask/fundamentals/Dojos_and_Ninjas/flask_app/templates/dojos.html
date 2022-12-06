@@ -29,7 +29,7 @@
                 {% for dojo in dojos %}
                 <ul class="dojolist">
                     <li>
-                        <a href="/dojos/ninjas/{{dojo.id}}">{{dojo.name}}</a>
+                        <a href="/dojo/{{dojo.id}}">{{dojo.name}}</a> | <a href="/dojos/destroy/{{dojo.id}}">Delete</a>
                     </li>
                 </ul>
                 {% endfor %}

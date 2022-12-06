@@ -13,7 +13,7 @@
                 <h2>New Books</h2>
             </div>
             <div class="form">
-                <form action="">
+                <form action="/book/new/add" method="post">
                     <div>
                         <label for="title">Title: </label>
                         <input type="text" name="title">
@@ -31,9 +31,16 @@
                 <h2>All Books</h2>
             </div>
             <div>
-                
+                {% for book in books %}
+                <ul>
+                    <li><a href='/book/favorites/{{book.id}}'>{{book.title}}</a></li>
+                </ul>
+                {% endfor %}
             </div>
         </div>
+    </div>
+    <div>
+        <button><a href="/">Home</a></button>
     </div>
 </body>
 </html>

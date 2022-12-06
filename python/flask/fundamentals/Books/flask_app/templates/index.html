@@ -14,7 +14,7 @@
                 <h2>New Author</h2>
             </div>
             <div class="form">
-                <form action="">
+                <form action="/author/create" method="post">
                     <div>
                         <label for="name">Name: </label>
                         <input type="text" name="name">
@@ -30,11 +30,14 @@
             <div>
                 {% for author in authors %}
                 <ul class="authorlist">
-                    <li><a href="/author/favorites/{{author.id}}">{{author.first_name}} {{author.last_name}}</a></li>
+                    <li><a href="/author/show/{{author.id}}">{{author.name}}</a></li>
                 </ul>
                 {% endfor %}
             </div>
         </div>
+    </div>
+    <div>
+        <button><a href="/book/new">Add Book</a></button>
     </div>
 </body>
 </html>

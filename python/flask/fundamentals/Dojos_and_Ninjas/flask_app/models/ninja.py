@@ -9,11 +9,11 @@ class Ninja:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
-    @classmethod
-    def get_all(cls,data):
-        query = "SELECT * FROM ninjas LEFT JOIN dojos on ninjas.dojo_id = dojos.id where dojos.id = %(id)s;"
-        ninjas_from_db = connectToMySQL('mydb').query_db(query,data)
-        return ninjas_from_db
+    # @classmethod
+    # def get_all(cls,data):
+    #     query = "SELECT * FROM ninjas LEFT JOIN dojos on ninjas.dojo_id = dojos.id where dojos.id = %(id)s;"
+    #     ninjas_from_db = connectToMySQL('mydb').query_db(query,data)
+    #     return ninjas_from_db
 
     @classmethod
     def save(cls,data):

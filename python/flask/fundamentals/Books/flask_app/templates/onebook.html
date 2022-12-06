@@ -10,19 +10,39 @@
     <div class="container">
         <div class="box">
             <div class="title">
-                <h2>Title:    </h2>
+                <h2>Title: {{one_book.title}}</h2>
             </div>
             <div>
-                
+
             </div>
         </div>
         <div class="box">
             <div class="title">
-                <h2>All Authors</h2>
+                <h2>Favorited By: </h2>
             </div>
             <div>
-                
+                {% for b in one_book.authors %}
+                <p>{{b.name}}</p>
+                {% endfor %}
             </div>
+        </div>
+        <div>
+            <div>
+                <h2>Add Book's Favorite</h2>
+            </div>
+            <div>
+                <form action="/book/favorites/add" method="post">
+                    <input type="hidden" name="book_id" value={{one_book.id}}>
+                    <label for="name">Author: </label>
+                    <select name="author_id">
+                        {% for author in unfavorited_authors %}
+                        <option value="{{author.id}}">{{author.name}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Add Author">
+                </form>
+            </div>
+            <button><a href="/">Home</a></button>
         </div>
     </div>
 </body>

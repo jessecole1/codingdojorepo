@@ -3,12 +3,12 @@ from flask import render_template, redirect, request
 from flask_app.models.ninja import Ninja
 from flask_app.models.dojo import Dojo
 
-@app.route('/dojos/ninjas/<int:id>')
-def showNinjas(id):
-    data = {
-        "id":id
-    }
-    return render_template ('dojousers.html', ninjas = Ninja.get_all(data))
+# @app.route('/dojos/ninjas/<int:id>')
+# def showNinjas(id):
+#     data = {
+#         "id":id
+#     }
+#     return render_template ('dojousers.html', ninjas = Ninja.get_all(data))
 
 @app.route('/ninja/add', methods=['POST'])
 def addNinja():
@@ -37,4 +37,4 @@ def destroyNinja(id):
         "id":id
     }
     Ninja.destroy(data)
-    return redirect('/')
+    return render_template('dojousers.html')
