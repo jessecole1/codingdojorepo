@@ -1,0 +1,47 @@
+* {
+    margin: 0 auto;
+    padding: 0px;
+}
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 800px;
+    padding: 20px;
+}
+.friendships {
+    border: 1px solid black;
+    padding: 15px;
+    height: 25%;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.box2 {
+    width: 300px;
+    border: 2px solid black;
+    height: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.table {
+    height: 100px;
+}
+.box3 {
+    width: 270px;
+    height: 200px;
+    border: 2px solid black;
+    margin-top: 20px;
+    padding: 15px;
+}
+.createFriendTable {
+    height: 100px;
+    width: inherit;
+}
+.theFriends {
+    display: flex;
+    flex-direction: row;
+}

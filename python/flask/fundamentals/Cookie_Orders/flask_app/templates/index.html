@@ -17,7 +17,7 @@
                 <h4>All Orders</h4>
             </div>
             <div>
-                <a href="/cookies/new">+ New Order</a>
+                <a href="/orders/new">+ New Order</a>
             </div>
         </div>
         <div class="box3">
@@ -31,9 +31,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for order in orders %}
                     <tr>
-
+                        <td>{{order.name}}</td>
+                        <td>{{order.cookie_type}}</td>
+                        <td>{{order.num_of_boxes}}</td>
+                        <td><a href="/orders/edit/{{order.id}}">edit</a></td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

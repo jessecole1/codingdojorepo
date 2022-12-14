@@ -14,27 +14,28 @@
                 <h2>Change Order</h2>
             </div>
             <div>
-                <a href="/cookies">Back to Purchases</a>
+                <a href="/orders">Back to Purchases</a>
+                <p>Order ID: {{orders.id}}</p>
             </div>
         </div>
         <div class="box3">
-            <form action="">
+            <form action="/orders/edit/update" method="post">
+                <input type="hidden" name="id" value="{{orders.id}}">
                 <table>
                     <tr>
                         <td><label for="name">Name:</label></td>
-                        <td><input type="text" name="name"></td>
+                        <td><input type="text" name="name" value="{{orders.name}}"></td>
                     </tr>
                     <tr>
-                        <td><label for="type">Cookie Type:</label></td>
-                        <td><input type="text" name="type"></td>
+                        <td><label for="cookie_type">Cookie Type:</label></td>
+                        <td><input type="text" name="cookie_type" value="{{orders.cookie_type}}"></td>
                     </tr>
                     <tr>
                         <td><label for="num_of_boxes">Number of Boxes:</label></td>
-                        <td><select name="num_of_boxes" id="">
-                            <option value=""></option>
-                        </select></td>
+                        <td><input type="text" name="num_of_boxes" value="{{orders.num_of_boxes}}"></td>
                     </tr>
                 </table>
+                <input type="submit">
             </form>
         </div>
     </div>

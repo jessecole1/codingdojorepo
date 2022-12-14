@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="box">
+        <h2 class="formbox1">Register</h2>
+        <div class="formbox2">
+            <form action="/register" method="post" class="formclass">
+                <table class="formclass">
+                    <tbody>
+                        {% if 'first_name' not in session %}
+                        <tr>
+                            <td><label for="first_name">First Name:</label></td>
+                            <td><input type="text" name="first_name"></td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td><label for="first_name">First Name:</label></td>
+                            <td><input type="text" name="first_name" value="{{session['first_name']}}"></td>
+                        </tr>                
+                        {% endif %}
+                        {% if 'last_name' not in session %}
+                        <tr>
+                            <td><label for="last_name">Last Name:</label></td>
+                            <td><input type="text" name="last_name"></td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td><label for="last_name">Last Name:</label></td>
+                            <td><input type="text" name="last_name" value="{{session['last_name']}}"></td>
+                        </tr>
+                        {% endif %}
+                        <tr>
+                            <td><label for="email">Email:</label></td>
+                            <td><input type="text" name="email"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">Password:</label></td>
+                            <td><input type="password" name="password"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="confirm">Confirm password:</label></td>
+                            <td><input type="password" name="confirm"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" value="Register"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                {% with messages = get_flashed_messages(category_filter=['register']) %}
+                {% if messages %}
+                <div class="flashMessage">
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+            </form>
+        </div>
+    </div>
+    <div class="box">
+        <h2 class="title">Login</h2>
+        <div class="formbox2">
+            <form action="/login" class="loginform" method="post">
+                <table class="loginformflex">
+                    <tbody style="height: 100%;">
+                        <tr>
+                            <td><label for="email">Email:</label></td>
+                            <td><input type="text" name="email"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">Password:</label></td>
+                            <td><input type="password" name="password"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" value="Login"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                {% with messages = get_flashed_messages(category_filter=['login']) %}
+                    {% if messages %}
+                    <div class="flashMessage">
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+            </form>
+        </div>
+    </div>
+</body>
+</html>

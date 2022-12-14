@@ -47,6 +47,7 @@ class User:
         for u in results:
             users.append( cls(u) )
         return users
+        
     @classmethod
     def save(cls,data):
         query = "INSERT INTO users (first_name, last_name, email) VALUES ( %(first_name)s , %(last_name)s , %(email)s );"
