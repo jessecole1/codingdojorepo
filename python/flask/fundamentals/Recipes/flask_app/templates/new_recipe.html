@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="dashcontent">
+        <div class="dashnav">
+            <h3 class="leftnav">Add a New Recipe!</h3>
+            <div class="rightnav">
+                <p style="margin-right: 40px;"><button><a href="/dashboard">back to recipes</a></p></button>
+                <button><a href="/logout">Logout</a></button>
+            </div>
+        </div>
+        <div>
+            <div class="warning">
+                <p>Description must not be blank</p>
+            </div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p class="recipeFlash">{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <div class="recipe_content">
+                <form class="recipe_form" action="/recipe/add/new" method="post">
+                    <input type="hidden" name="user_id" value="{{session['user_id']}}">
+                    <div class="right_form">
+                        <table class="right_form">
+                            <tbody class="formbody">
+                                <tr>
+                                    <td><label for="name">Name</label></td>
+                                    <td><input type="text" name="name"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="descrption">Description</label></td>
+                                    <td><input type="text" name="description"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="instructions">Instructions</label></td>
+                                    <td><input type="text" name="instructions"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="left_form">
+                        <div>
+                            <p><label for="cook_time">Date Cooked/Made:</label></p>
+                            <input type="date" name="cook_time">
+                        </div>
+                        <div>
+                            <p><label for="under_30_min">Under 30 minutes?</label></p>
+                            <label for="yes">Yes</label>
+                            <input type="radio" name="under_30_min" value="1" id="yes">
+                            <label for="no">No</label>
+                            <input type="radio" name="under_30_min" value="0" id="no">
+                        </div>
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

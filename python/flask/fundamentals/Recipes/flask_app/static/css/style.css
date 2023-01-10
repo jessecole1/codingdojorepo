@@ -1,0 +1,132 @@
+* {
+    margin: 0 auto;
+    padding: 0px;
+}
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.box {
+    background-color: rgb(52,58,62);
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.formbox1 {
+    height: 10%;
+}
+.formbox2 {
+    height: 90%;
+}
+.formclass {
+    height: 100%;
+}
+.title {
+    height: 10%;
+}
+.loginform {
+    height: 25%;
+}
+.loginformflex {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.flashMessage {
+    color: red;
+    background-color: blanchedalmond;
+    font-weight: bold;
+    font-style: italic;
+}
+.dashnav {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    width: 80%;
+    height: 50px;
+    border-bottom: 2px solid black;
+}
+.rightnav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.leftnav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.dashcontent {
+    width: 100%;
+}
+.post {
+    border: 2px solid black;
+    height: 150px;
+    width: 300px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+.postTitle {
+    border-bottom: 2px solid black;
+    flex: 1;
+    width: 100%
+}
+.postContent {
+    flex: 3;
+    width: 100%;
+    padding-top: 8px;
+}
+.recipe_content {
+    height: 300px;
+}
+.recipe_form {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.right_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+.formbody {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.left_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 80%;
+}
+.warning {
+    margin-left: 10%;
+    margin-top: 20px;
+    color: red;
+}
+.recipe_table {
+    width: 65%;
+}
+.table_title {
+    border: 2px solid black;
+}
+.viewbox {
+    border: 2px solid black;
+    height: 300px;
+    width: 80%;
+    margin-top: 1%;
+}
+.recipeFlash {
+    color: red;
+    background-color: blanchedalmond;
+    font-weight: bold;
+    font-style: italic;
+}

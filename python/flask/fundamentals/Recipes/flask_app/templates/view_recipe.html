@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="dashcontent">
+        <div class="dashnav">
+            <h3 class="leftnav">Welcome, {{user.first_name}}</h3>
+            <div class="rightnav">
+                <button><a href="/dashboard">Back</a></button>
+                <p style="margin-right: 40px;"><button><a href="/recipe/add">+ Create</a></p></button>
+                <button><a href="/logout">Logout</a></button>
+            </div>
+        </div>
+        <div class="viewbox">
+            <table>
+                <tbody style="width: 75%">
+                    <tr>
+                        <td>Description:</td>
+                        <td>{{recipe.description}}</td>
+                    </tr>
+                    <tr>
+                        <td>Under 30 Minutes?</td>
+                        {% if recipe.under_30_minutes == True %}
+                        <td>Yes</td>
+                        {% else %}
+                        <td>No</td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>Instructions:</td>
+                        <td>{{recipe.instructions}}</td>
+                    </tr>
+                    <tr>
+                        <td>Date Made:</td>
+                        <td>{{recipe.cook_time}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
