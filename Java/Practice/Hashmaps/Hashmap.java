@@ -15,6 +15,7 @@ public class Hashmap {
         String name = userMap.get("nninja@codingdojo.com");
 
         // ===== Iteration ===== //
+        // Set is a collection of unordered unique values 
         Set<String> keys = userMap.keySet();
         for(String key : keys) {
             System.out.println(key);
