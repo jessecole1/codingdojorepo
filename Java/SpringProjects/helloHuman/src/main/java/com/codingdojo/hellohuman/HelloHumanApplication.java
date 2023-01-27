@@ -16,12 +16,12 @@ public class HelloHumanApplication {
 	@RestController
 	public class HumanController {
 		@RequestMapping("/")
-		public String Hello(@RequestParam(value="name", required=false)String searchQuery) {
+		public String Hello(@RequestParam(value="name", required=false)String searchQuery, @RequestParam(value="last_name", required=false)String searchQueryy) {
 			if (searchQuery == null) {
 				return "Hello Human";
 			}
 			else {
-				return "Hello " + searchQuery;
+				return "Hello " + searchQuery + " " + searchQueryy;
 			}
 		}
 	}
