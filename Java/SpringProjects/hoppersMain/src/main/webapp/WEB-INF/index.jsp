@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Hopper's Main</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script type="text/javascript" src="/js/app.js"></script>
 </head>
 <body>
 		<h1>Customer's Name: <c:out value="${wholeName}" /></h1>
