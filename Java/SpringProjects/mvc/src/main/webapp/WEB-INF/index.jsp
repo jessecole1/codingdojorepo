@@ -9,8 +9,23 @@
 </head>
 <body>
 	<h1>TEST</h1>
-	<c:forEach var="book" items="${books}">
-	<p><c:out value="${book.title}"></c:out></p>
-	</c:forEach>
+	<table>
+		<thead>
+			<th>ID</th>
+			<th>Title</th>
+			<th>Description</th>
+			<th># Of Pages</th>
+		</thead>
+		<tbody>
+			<c:forEach var="book" items="${books}">
+			<tr>
+				<td><c:out value="${book.id}"></c:out></td>
+				<td><c:out value="${book.title}"></c:out></td>
+				<td><c:out value="${book.language}"></c:out></td>
+				<td><c:out value="${book.numberOfPages}"></c:out></td>
+			</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </body>
 </html>

@@ -27,12 +27,12 @@ public class BookController {
 	
 	}
 	
-	@GetMapping("/books/{bookId}")
+	@GetMapping("/book/{bookId}")
 	public String book(Model model, @PathVariable("bookId") Long id) {
 		Book book = bookService.findBook(id);
 		
 		model.addAttribute("book", book);
 		return "book.jsp";
 	}
-
+	
 }
