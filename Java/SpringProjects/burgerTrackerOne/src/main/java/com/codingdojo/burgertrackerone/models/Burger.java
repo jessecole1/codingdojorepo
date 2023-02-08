@@ -23,16 +23,16 @@ public class Burger {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
-	@Size(min=5, max=200)
+	@Size(min=5, max=200, message="Name must be 5 characters")
 	private String burgerName;
 	@NotNull
-	@Size(min=5, max=200)
+	@Size(min=5, max=200, message="Name must be 5 characters")
 	private String restaurantName;
 	@NotNull
-	@Min(0)
+	@Min(0, message="Please submit rating")
 	private Integer rating;
 	@NotNull
-	@Size(min=5, max=200)
+	@Size(min=5, max=200, message="Notes must be 5 characters")
 	private String notes;
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
