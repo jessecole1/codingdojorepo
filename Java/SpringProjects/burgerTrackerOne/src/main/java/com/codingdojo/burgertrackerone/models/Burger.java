@@ -29,7 +29,7 @@ public class Burger {
 	@Size(min=5, max=200, message="Name must be 5 characters")
 	private String restaurantName;
 	@NotNull
-	@Min(0, message="Please submit rating")
+	@Min(0)
 	private Integer rating;
 	@NotNull
 	@Size(min=5, max=200, message="Notes must be 5 characters")

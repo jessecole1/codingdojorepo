@@ -7,34 +7,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Books</title>
+<title>Edit Burger</title>
 </head>
 <body>
-	<h2>Burger Tracker</h2>
-	<table>
-		<thead>
-			<tr>
-				<th>Burger Name</th>
-				<th>Restaurant Name</th>
-				<th>Rating</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="burger" items="${burgers}">
-				<tr>
-					<td><c:out value="${burger.burgerName}"></c:out></td>
-					<td><c:out value="${burger.restaurantName}"></c:out></td>
-					<td><c:out value="${burger.rating}"></c:out></td>
-					<td><a href="/burger/${burger.id}/edit">edit</a></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
 	<h2>Add a Burger:</h2>
 	<table>
 		<tbody>
-			<form:form action="/burger" method="post" modelAttribute="burger">
+			<form:form action="/burger/${burger.id}" method="post" modelAttribute="burger">
+			<input type="hidden" name="_method" value="put">
 			<tr>
 				<td><form:label path="burgerName">Burger Name</form:label></td>
 				<td><form:errors path="burgerName"></form:errors></td>
