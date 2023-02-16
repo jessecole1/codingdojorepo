@@ -11,5 +11,22 @@
 </head>
 <body>
 	<h1><c:out value="${dorm.name}"/>'s Students</h1>
+	<div>
+		<span>
+			<form action="#" method="post">
+			<label path="dorm">Students</label>
+			<select path="dorm">
+				<c:forEach var="student" items="${dorm.students}">
+				<option value="${student.id}">${student.name}</option>
+				</c:forEach>
+			</select>
+			</form>
+		</span>
+	</div>
+	<div>
+		<c:forEach var="student" items="${dorm.students}">
+		<p>${student.name}</p>
+		</c:forEach>
+	</div>
 </body>
 </html>
