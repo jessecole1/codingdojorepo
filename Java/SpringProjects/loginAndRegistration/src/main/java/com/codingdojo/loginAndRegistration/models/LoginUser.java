@@ -1,12 +1,13 @@
 package com.codingdojo.loginAndRegistration.models;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 public class LoginUser {
 
 	@NotEmpty(message="Email is required")
-	@Size(min=3, max=200, message="Email must be between 3 and 200 characters")
+	@Email(message="Email must be between 3 and 200 characters")
 	private String email;
 	
 	@NotEmpty(message="Password is required")

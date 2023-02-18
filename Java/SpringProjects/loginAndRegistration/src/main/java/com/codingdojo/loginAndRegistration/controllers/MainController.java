@@ -19,7 +19,7 @@ import com.codingdojo.loginAndRegistration.services.UserService;
 public class MainController {
 
 	@Autowired
-	UserService userService;
+	private UserService userServ;
 	
 	@GetMapping("/")
 	public String index(Model model) {
@@ -31,41 +31,47 @@ public class MainController {
 	@PostMapping("/register")
 	public String register(@Valid @ModelAttribute("newUser") User newUser,
 			BindingResult result, Model model, HttpSession session) {
+		
+		userServ.register(newUser, result);
+		
 		if (result.hasErrors()) {
+			model.addAttribute("newLogin", new LoginUser());
 			return "index.jsp";
-		} else {
-			userService.createUser(newUser);
-			session.setAttribute("user", newUser);
-			model.addAttribute("user", newUser);
-			return "dashboard.jsp";	
-		}
+		} 
+		session.setAttribute("userId", newUser.getId());
+		return "redirect:/dashboard";	
+		
 	}
 	
 	@PostMapping("/login")
-	public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, Model model, 
-			BindingResult result, HttpSession session) {
+	public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, 
+			BindingResult result, Model model, HttpSession session) {
 		
-		User user = userService.login(newLogin, result);
+		User user = userServ.login(newLogin, result);
 		
 		if(result.hasErrors()) {
 			model.addAttribute("newUser", new User());
 			return "index.jsp";
-		} else {
-			session.setAttribute("user", user.getId());
-			return "redirect:/dashboard";
-		}
-		
+		} 
+		session.setAttribute("userId", user.getId());
+		return "redirect:/dashboard";
 	}
 	
 	@GetMapping("/dashboard")
 	public String dashboard(Model model, HttpSession session) {
-		Long userId = (Long) session.getAttribute("user");
+		Long userId = (Long) session.getAttribute("userId");
 		if(userId == null) {
 			return "redirect:/";
-		} else {
-			User user = userService.findById(userId);
-		}
-		
+		} 
+		User user = userServ.findById(userId);
+		model.addAttribute("user", user);
 		return "dashboard.jsp";
+		
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.setAttribute("userId", null);
+		return "redirect:/";
 	}
 }

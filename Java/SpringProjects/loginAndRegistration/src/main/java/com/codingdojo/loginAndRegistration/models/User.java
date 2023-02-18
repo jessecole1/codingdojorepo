@@ -10,6 +10,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -22,18 +23,21 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	
 	@NotEmpty(message="Username is required")
 	@Size(min=3, max=200, message="Username must be between 3 and 200 characters")
 	private String userName;
+	
 	@NotEmpty(message="Email is required")
-	@Size(min=3, max=200, message="Email must be between 3 and 200 characters")
+	@Email(message="Email must be between 3 and 200 characters")
 	private String email;
+	
 	@NotEmpty(message="Password is required")
 	@Size(min=8, max=200, message="Password must be between 8 and 200 characters")
 	private String password;
 	
 	@Transient
-	@NotEmpty
+	@NotEmpty(message="Confirm Password is required")
 	@Size(min=8, max=200, message="Confirm must be between 8 and 200 characters")
 	private String confirm;
 	
@@ -46,11 +50,11 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public User(String userName, String email, String password) {
-		this.userName = userName;
-		this.email = email;
-		this.password = password;
-	}
+//	public User(String userName, String email, String password) {
+//		this.userName = userName;
+//		this.email = email;
+//		this.password = password;
+//	}
 
 	public Long getId() {
 		return id;

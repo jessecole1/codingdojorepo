@@ -3,6 +3,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isErrorPage="true" %> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,18 +21,22 @@
 					<tbody>
 						<tr>
 							<td><form:label path="userName">Username</form:label></td>
+							<form:errors path="userName"/>
 							<td><form:input path="userName" type="text"/></td>
 						</tr>
 						<tr>
 							<td><form:label path="email">Email</form:label></td>
+						<form:errors path="email"/>
 							<td><form:input path="email" type="text"/></td>
 						</tr>
 						<tr>
 							<td><form:label path="password">Password</form:label></td>
+						<form:errors path="password"/>
 							<td><form:input path="password" type="password"/></td>
 						</tr>
 						<tr>
 							<td><form:label path="confirm">Confirm Password</form:label></td>
+						<form:errors path="confirm"/>
 							<td><form:input path="confirm" type="password"/></td>
 						</tr>
 					</tbody>
@@ -48,10 +53,12 @@
 					<tbody>
 						<tr>
 							<td><form:label path="email">Email</form:label></td>
+							<form:errors path="email"/>
 							<td><form:input path="email" type="text"/></td>
 						</tr>
 						<tr>
 							<td><form:label path="password">Password</form:label></td>
+							<form:errors path="password"/>
 							<td><form:input path="password" type="password"/></td>
 						</tr>
 					</tbody>
