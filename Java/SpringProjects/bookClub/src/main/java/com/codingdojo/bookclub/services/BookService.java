@@ -32,4 +32,7 @@ public class BookService {
 		return book.get();
 	}
 
+	public void destroyBook(Long bookId) {
+		bookRepo.deleteById(bookId);
+	}
 }

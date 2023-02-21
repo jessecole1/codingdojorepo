@@ -7,11 +7,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add Book Page</title>
+<title>Edit Book</title>
 </head>
 <body>
-	<h1>Add a Book to Your Shelf, <c:out value="${user.name}"/></h1>
-	<form:form action="/new/book" method="post" modelAttribute="newBook">
+	<h1>Edit a Book from Your Shelf, <c:out value="${user.name}"/></h1>
+	<form:form action="#" method="post" modelAttribute="book">
  	<form:input type="hidden" path="user" value="${user.id}"/>
 	<table>
 		<tbody>
