@@ -35,4 +35,8 @@ public class BookService {
 	public void destroyBook(Long bookId) {
 		bookRepo.deleteById(bookId);
 	}
+	
+	public Book updateBook(Book newBook) {
+		return bookRepo.save(newBook);
+	}
 }

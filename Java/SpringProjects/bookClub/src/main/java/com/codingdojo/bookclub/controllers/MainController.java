@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -133,13 +134,35 @@ public class MainController {
 			HttpSession session) {
 		Book book = bookServ.getById(bookId);
 		model.addAttribute("book",book);
+		Long userId = (Long) session.getAttribute("userId");
+		User user = userServ.findById(userId);
+		model.addAttribute("user", user);
 		return "editbook.jsp";
 	}
 	
-	@RequestMapping(value="/one/book/edit/{bookId}", method=RequestMethod.PUT)
-	public String edit() {
-		return "redirect:/dashboard";
+	@PutMapping("/one/book/edit/{id}")
+	public String edit(Model model, 
+			@Valid
+			@ModelAttribute("book") Book newBook,
+			BindingResult result, 
+			HttpSession session
+			) {
+		if (result.hasErrors()) {
+			System.out.println("hey");
+//			model.addAttribute("book", bookServ.getById(bookId));
+			return "editbook.jsp";
+		} else {
+			System.out.println("heyo");
+			bookServ.updateBook(newBook);
+			System.out.println("YOOO");
+			return "redirect:/dashboard";
+		}
 	}
+	
+//	@RequestMapping(value="/one/book/edit/{bookId}", method=RequestMethod.PUT)
+//	public String edit() {
+//		return "redirect:/dashboard";
+//	}
 	
 	@RequestMapping(value="/one/book/delete/{bookId}", method=RequestMethod.POST)
 	public String destroy(@PathVariable("bookId") Long bookId) {

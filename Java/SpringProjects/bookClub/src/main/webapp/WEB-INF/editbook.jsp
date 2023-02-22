@@ -11,7 +11,8 @@
 </head>
 <body>
 	<h1>Edit a Book from Your Shelf, <c:out value="${user.name}"/></h1>
-	<form:form action="#" method="post" modelAttribute="book">
+	<form:form action="/one/book/edit/${book.id}" method="put" modelAttribute="book">
+<!--  	<input type="hidden" name="_method" value="put"> -->
  	<form:input type="hidden" path="user" value="${user.id}"/>
 	<table>
 		<tbody>
@@ -21,11 +22,13 @@
 				<td><form:input path="title" type="text"/></td>
 			</tr>
 			<tr>
-				<td><form:label path="author">Author:</form:label><form:errors path="author" style="color:red"/></td>
+				<td><form:label path="author">Author:</form:label>
+				<form:errors path="author" style="color:red"/></td>
 				<td><form:input path="author" type="text"/></td>
 			</tr>
 			<tr>
-				<td><form:label path="thoughts">My thoughts:</form:label><form:errors path="thoughts" style="color:red"/></td>
+				<td><form:label path="thoughts">My thoughts:</form:label>
+				<form:errors path="thoughts" style="color:red"/></td>
 				<td><form:textarea path="thoughts"/>
 			</tr>
 		</tbody>

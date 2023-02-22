@@ -44,6 +44,7 @@ public class UserService {
 		
 		if(!potentialUser.isPresent()) {
 			result.rejectValue("email", "Matches", "No account with entered email");
+			return null;
 		}
 		
 		User user = potentialUser.get();
