@@ -170,6 +170,39 @@ public class MainController {
 		return "redirect:/dashboard";
 	}
 	
+	@GetMapping("/one/book/borrow/{bookId}")
+	public String borrowBook(@PathVariable("bookId") Long bookId,
+			HttpSession session) {
+		Long userId = (Long) session.getAttribute("userId");
+		User user = userServ.findById(userId);
+		if(user==null) {
+			return "redirect:/";
+		}
+		Book book = bookServ.getById(bookId);
+		book.setBorrower(user);
+		System.out.println("TESTING borrow");
+		bookServ.updateBook(book);
+		System.out.println("TESTING updateBook method");
+		
+		return "redirect:/dashboard";
+	}
+	
+	@GetMapping("/one/book/return/{bookId}")
+	public String returnBook(@PathVariable("bookId") Long bookId,
+			HttpSession session) {
+		Long userId = (Long) session.getAttribute("userId");
+		User user = userServ.findById(userId);
+		if(user==null) {
+			return "redirect:/";
+		}
+		Book book = bookServ.getById(bookId);
+		System.out.println(book.getTitle());
+		book.setBorrower(null);
+		bookServ.updateBook(book);
+		System.out.println("return");
+		return "redirect:/dashboard";
+	}
+	
 	@GetMapping("/logout")
 	public String logout (HttpSession session) {
 		session.setAttribute("userId", null);

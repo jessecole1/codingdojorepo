@@ -53,6 +53,9 @@ public class User {
 	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
 	private List<Book> books;
 	
+	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
+	private List<Book> borrowedBooks;
+	
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
@@ -119,6 +122,14 @@ public class User {
 
 	public void setBooks(List<Book> books) {
 		this.books = books;
+	}
+
+	public List<Book> getBorrowedBooks() {
+		return borrowedBooks;
+	}
+
+	public void setBorrowedBooks(List<Book> borrowedBooks) {
+		this.borrowedBooks = borrowedBooks;
 	}
 
 	@PrePersist

@@ -22,20 +22,63 @@
 		<table>
 			<thead>
 				<tr>
-					<td>ID</td>
-					<td>Title</td>
-					<td>Author Name</td>
-					<td>Posted By</td>
+					<th>ID</th>
+					<th>Title</th>
+					<th>Author Name</th>
+					<th>Posted By</th>
+					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="book" items="${books}">
+				<c:choose>
+				<c:when test="${book.borrower != null}">
+				</c:when>
+				<c:when test="${user != book.user}">
 				<tr>
 					<td><c:out value="${book.id}"/></td>
 					<td><a href="/one/book/${book.id}"><c:out value="${book.title}"/></a></td>
 					<td><c:out value="${book.author}"/></td>
 					<td><c:out value="${book.user.name}"/></td>
+  					<td><a href="/one/book/borrow/${book.id}">Borrow</a>
 				</tr>
+				</c:when>
+				<c:otherwise>
+				<tr>
+					<td><c:out value="${book.id}"/></td>
+					<td><a href="/one/book/${book.id}"><c:out value="${book.title}"/></a></td>
+					<td><c:out value="${book.author}"/></td>
+					<td><c:out value="${book.user.name}"/></td>
+<%--  					<td><a href="/one/book/borrow/${book.id}">Borrow</a></td>  --%>
+				</tr>
+				</c:otherwise>
+				</c:choose>
+				</c:forEach>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr>
+					<th>TD</th>
+					<th>Title</th>
+					<th>Author Name</th>
+					<th>Posted By</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="book" items="${books}">
+				<c:choose>
+					<c:when test="${user == book.borrower}">
+						<tr>
+							<td><c:out value="${book.id}"/></td>
+							<td><a href="/one/book/${book.id}"><c:out value="${book.title}"/></a></td>
+							<td><c:out value="${book.author}"/></td>
+							<td><c:out value="${book.user.name}"/></td>
+							<td><a href="/one/book/return/${book.id}">Return</a></td>
+						</tr>
+					</c:when>
+				</c:choose>
 				</c:forEach>
 			</tbody>
 		</table>

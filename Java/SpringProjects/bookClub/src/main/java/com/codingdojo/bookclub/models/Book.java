@@ -41,12 +41,18 @@ public class Book {
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
+	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
+	
 	@NotNull
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="user_id")
 	private User user;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="borrower_id")
+	private User borrower;
 
 	public Book() {
 		// TODO Auto-generated constructor stub
@@ -108,6 +114,14 @@ public class Book {
 		this.updatedAt = updatedAt;
 	}
 	
+	public User getBorrower() {
+		return borrower;
+	}
+
+	public void setBorrower(User borrower) {
+		this.borrower = borrower;
+	}
+
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
