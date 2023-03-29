@@ -8,7 +8,7 @@ function App() {
   const [boxList, setBoxList] = useState([])
   return (
     <div className="App">
-      <BoxForm boxList = {boxList} setBoxList = {setBoxList}/>
+      <BoxForm x = {boxList} y = {setBoxList}/>
       <DisplayBox boxList = {boxList} />
     </div>
   );
