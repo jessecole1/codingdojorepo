@@ -43,3 +43,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.lineThrough {
+  text-decoration: line-through;
+}
