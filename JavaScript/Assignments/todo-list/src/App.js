@@ -21,10 +21,16 @@ function App() {
     setNewTodo("");
   }
 
+  // const handleDelete = (deleteIdx) => {
+  //   const filteredIdx = todoList.filter((todo, idx) => {return idx !== deleteIdx;})
+  //   setTodoList(filteredIdx)
+  // }
+
   const handleDelete = (deleteIdx) => {
-    const filteredIdx = todoList.filter((todo, idx) => {return idx !== deleteIdx;})
-    setTodoList(filteredIdx)
+    setTodoList(todoList.filter((todo, idx) => idx !== deleteIdx));
   }
+
+  // div isnt deleting
 
   const handleToggleComplete = (idx) => {
     const updatedTodos = todoList.map((todo, i) => {
