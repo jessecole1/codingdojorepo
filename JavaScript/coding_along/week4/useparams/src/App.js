@@ -23,7 +23,7 @@ function App() {
   return (
     <BrowserRouter>
       <p>
-        <Link to="/location/seattle">Seattle</Link>
+        <Link to="/location/Seattle">Seattle</Link>
         | 
         <Link to="/location/chicago">Chicago</Link>
         | 
