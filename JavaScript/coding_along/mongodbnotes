@@ -1,0 +1,145 @@
+MongoDB is a NoSQL database (Not Only SQL)
+    - it does support a structured query language (SQL), but also there is more felixibility in the storage of the data other than just basic tabular storage. 
+    - In a NoSQL environment, every piece of dat is unaware of the other pieces -> there is no relations between the data
+        - this means there are NO JOINS like in MySQL (SELECT * FROM users LEFT JOIN adress ON users.id = address.user_id)
+            - reason being it is an expensive operation 
+
+There are planet of NoSQL databases out there, why use MongoDB? 
+    - In MongoDB, everything that is stored is a JSON object
+        - J.S.O.N. is a JavaScript Object Notation. 
+            - Example: {'first_name': 'James', 'last_name': 'Johnson', 'age': 32}
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Installing MongoDB on Mac
+
+1. Install homebrew (other required steps i had to take on this mac below)
+2. After it completes, type command in terminal: 
+    xcode-select --install
+3. Next, type command in terminal:
+    brew tap mongodb/brew
+4. Next command, type in:
+    brew install mongodb-community@5.0
+5. To run MongoDB (i.e. the mongod process) as a macOS service, issue the following command:
+    brew services start mongodb-community@5.0
+6. To connect to your MongoDB databases, in a NEW terminal (after installing, you must open a new terminal), type:
+    mongosh
+
+Extra steps to make sure everything works
+
+This was already done on my mac laptop, but if i ever get a new computer or have to install mongodb on another mac, this is another step i would have to take
+1. install homebrew the usual way through the website - copy and past the command from the website, open the terminal and immediately paste it and press enter
+2. Next, in the terminal type ls -la which gives a long listing of the files, including hidden files
+    - LOOK FOR THE FILE .zshrc - this is the file that we want
+3. Next, type in the terminal cat .zshrc
+    - This will give you a path you want to copy - copy the path 
+    - Mine looked like
+        export PATH="$PATH:/opt/homebrew/bin/"
+4. Type in the terminal
+    vim .zshrc
+        - Press i for INSERT MODE
+        - Paste the path you copied 
+        - Press escape to exit INSERT MODE
+        - type in :wq and press enter
+
+
+Connect to MongoDB database by typing command in terminal:
+    mongosh
+
+Command to show current database selected:
+    db
+
+Command to switch to another database (NOTE: if the name you enter doesn't exist, it will automatically create a database with the name you input)
+This command can also be used to create a new database:
+    use <databaseName>
+    (i.e. for a database named My_database, type use My_database) 
+
+This command will show you your dbs:
+    show dbs
+
+To delete a database, type the following commands:
+<> - are not meant to be along the command
+    use <databaseName> db.dropDatabase()
+
+Collections are the tables in a mongodb database. Type following command to show the tables:
+    show collections
+
+To add a collection, type the following command: 
+    db.createCollection('<collectionName>')
+    (i.e. for a collection named users, type db.createCollection('users') )
+
+To delete a collection, type this command: 
+    db.<collectionName>.drop()
+
+system.indexes may be a default collection which doesn't go away
+
+To add data the collection, type this command:
+    db.<collectionName>.insertOne({})
+    (i.e. db.users.insertOne({name: "Jesse"}) )
+        MongoDB uses a JSON object as its unit of storage, so this is going to take in a JSON object
+        Otherwise known as documents, this is what is going to be passed into the command
+
+To find all the documents in a db collection, use this command:
+    db.<collectionName>.find()
+        or
+    db.<collectionName>.find().pretty()
+        this makes it look more pretty 
+
+To find something from a database with a specific name, or number, or whatever, send that information through the find() functions
+- Dont forget to add the {} in the find function
+    db.<collectionName>.find({<key>: <value>})
+
+To query by id, find the ObjectId("") (for example ObjectId("529223sdf235")) and use _id in the command:
+    db.<collectionName>.find({_id: ObjectId("")})
+
+To delete a document, pass in a name you want to match to the command:
+    db.<collectionName>.remove({<key>:<value>})
+
+Lets say you have more than one document with the same value (two ninjas with the name Jesse). You must pass in an additional thing.
+    db.<collectionName>.remove({<key>:<value>}, true)
+        We added the true, which is defaulted to false. 
+            Its basically asking, do I only want to remove one? Yes, True, I only want to remove one. 
+
+To update a document, use this command:
+    db.<collectionName>.update({<key:value>},{$set:{<key:value>}})
+        The first key:value pair is the document you want to be updated
+        The second key:value pair is what data you wanted updated 
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+MongoDB Operators
+
+An example of an operator would look like this command:
+    db.<collectionName>.find({<key>: {$gt:<value>}})
+
+Operators:
+    $gt (greater than) - used on numerically valued fields
+    $gte (greater than or equal to)
+    $lt (less than)
+    $lte (less than or equal to)
+    $in (in array) - used to find documents with a particular value within an array
+
+
+One of the aspects of a NoSQL database is with the key value pairs, a value can contain multiple values
+
+Array Update Operators
+
+Given a document where a key name is "interest", lets say that the value has two items (coding, and golf, for example)
+To add a third value to the "interest" field, run this command:
+    db.<collectionName>.update({_id: ObjectId("5463d871a6a96d5ed6252f4d")}, {$push: {interests: 'snowboarding'}})
+
+Operators:
+    $push - push to an array contained within a document
+    $pop - removes either the first or last element from an array
+        - db.<collectionName>.update({<key>:<value>}, {$pop: {array_key: (1 or -1)}})
+            - use 1 for the last item or -1 for the first item
+    $addToSet - it functions like the push. However, $addToSet only adds to the specified array IF the value doesn't already exist
+    $pull - removes a specified value from an array, unlike $pop which removes by location in an array
+        - db.<collectionName>.update({<key>:<value>}, {$pull: {array_key: value}})
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+MySQL Database Schema == MongoDB Database (db)
+
+SQL: Row / Record == MongoDB: Document (JSON object)
