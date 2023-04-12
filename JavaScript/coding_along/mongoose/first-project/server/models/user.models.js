@@ -13,7 +13,7 @@ const User = mongoose.model('User', UserSchema);
 // A model object is created with 'User' as the name and the mongoose schema UserSchema
 // This model will be used to enable crud functionality
 
-// The mongoose.modle() method takes a blueprint object and, in tur, creates the necessary database collection out of the model
+// The mongoose.model() method takes a blueprint object and, in turn, creates the necessary database collection out of the model
 // We get this blueprint by making a new schema instance from the mongoose.Schema() object constructor. 
 //      - notice how the mongoose.Schema() takes in an object as its parameter?
 //      - the structure of that object is how each new document put into the collection will be formatted

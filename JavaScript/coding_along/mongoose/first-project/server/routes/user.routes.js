@@ -13,7 +13,7 @@ module.exports = app => {
 }
 
 // NOTE: The order of the routes matter.
-// - If you have a route with a wildcare (like :id) before a path with a specific name, the wildcard route will always run. Move specific routes to the top to ensure they are followed. 
+// - If you have a route with a wildcard (like :id) before a path with a specific name, the wildcard route will always run. Move specific routes to the top to ensure they are followed. 
 
 // For example:
 // If you wanted to create a specific path, it would have to go before your get route to a single document. The following would never make it to the allUsers path because the :id route would match the string allUsers: 
