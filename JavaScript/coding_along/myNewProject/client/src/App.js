@@ -5,6 +5,7 @@ import './App.css';
 import React from 'react';
 import PersonForm from './components/PersonForm';
 import PersonList from './components/PersonList';
+import Details from './components/Details';
 import {useState} from 'react';
 import axios from 'axios';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -16,7 +17,8 @@ const App = () => {
       <BrowserRouter>
       {/* <PersonList /> */}
         <Routes>
-          <Route element={<Main/>} path="/home" default/>
+          <Route element={<Main/>} path="/people"/>
+          <Route element={<Details />} path="/people/:id" />
         </Routes>
       </BrowserRouter>
     </div>

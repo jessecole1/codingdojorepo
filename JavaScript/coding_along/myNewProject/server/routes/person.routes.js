@@ -11,6 +11,9 @@ module.exports = (app) => {
 
     // PART III - Codeblock 2
     app.get('/api/people', PersonController.getAllPeople);
+
+    // PART IV - Codeblock 2
+    app.get('/api/people/:id', PersonController.getPerson);
 }
 
 // Next we need to head over to the server.js file and import the mongoose config file so it will 
