@@ -23,7 +23,8 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-const PersonForm = () => {
+const PersonForm = (props) => {
+    const {people, setPeople} = props; // PART III - Codeblock 7
     const [firstName, setFirstName] = useState('');
     const [lastname, setLastName] = useState('');
 
@@ -34,8 +35,9 @@ const PersonForm = () => {
             lastName: lastname
         })
             .then(res=>{
-                console.log(res);
-                console.log(res.data);
+                // console.log(res);
+                // console.log(res.data);
+                setPeople([...people, res.data]); // PART III - Codeblock 7
             })
             .catch(err=>console.log(err))
 

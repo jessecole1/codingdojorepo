@@ -8,6 +8,9 @@ module.exports = (app) => {
     app.post('/api/people', PersonController.createPerson);
     // By adding this line, we can now create people by sending 
     // a post request to 'localhost:8000/api/people'.
+
+    // PART III - Codeblock 2
+    app.get('/api/people', PersonController.getAllPeople);
 }
 
 // Next we need to head over to the server.js file and import the mongoose config file so it will 
