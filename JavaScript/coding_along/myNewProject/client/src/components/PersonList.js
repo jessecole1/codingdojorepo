@@ -14,7 +14,7 @@ const PersonList = (props) => {
     const {removeFromDom, people, setPeople} = props;
 
     const deletePerson = (personId) => {
-        axios.delete('http://localhost:8001/api/people' + personId)
+        axios.delete('http://localhost:8001/api/people/' + personId)
             .then(res => {
                 removeFromDom(personId);
             })
@@ -25,7 +25,7 @@ const PersonList = (props) => {
     
 
     useEffect(() => {
-        axios.get('http://localhost:8001/api/people')
+        axios.get('http://localhost:8001/api/people/')
             .then((res) => {
                 // console.log("===========");
                 // console.log(res.data);

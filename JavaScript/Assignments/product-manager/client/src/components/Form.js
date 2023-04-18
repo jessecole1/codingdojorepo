@@ -1,7 +1,8 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
-const Form = () => {
+const Form = (props) => {
+    const {products, setProducts} = props;
 
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState(0);
@@ -15,7 +16,8 @@ const Form = () => {
             description: description
         })
             .then(res=>{
-                console.log(res.data)
+                console.log(res.data);
+                setProducts([...products, res.data]);
             })
             .catch(err=>{
                 console.log(err)
