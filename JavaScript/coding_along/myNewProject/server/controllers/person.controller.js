@@ -40,4 +40,17 @@ module.exports.getPerson = (request, response) => {
         .catch(err=>response.json(err));
 }
 
+module.exports.updatePerson = (request, response) => {
+    Person.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
+    // {new:true} indicates we want the returned document to contain the newly updated document instead of the default mongoose action of sending back the orginial document (prior to updating)
+        .then(updatedPerson => response.json(updatedPerson))
+        .catch(err => console.log(err));
+}
+
+module.exports.deletePerson = (request, response) => {
+    Person.deleteOne({_id: request.params.id})
+        .then(deleteConfirmation => response.json(deleteConfirmation))
+        .catch(err => response.json(err))
+}
+
 // Now lets update our routes 

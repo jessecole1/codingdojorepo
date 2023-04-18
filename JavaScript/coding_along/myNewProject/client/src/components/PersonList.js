@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 // PART III - Codeblock 6
 
 import axios from 'axios';
+// import { deletePerson } from '../../../server/controllers/person.controller';
 
 const PersonList = (props) => {
     // console.log("------------");
@@ -10,7 +11,17 @@ const PersonList = (props) => {
     // console.log("------------");
     // console.log(props.people);
 
-    const {people, setPeople} = props;
+    const {removeFromDom, people, setPeople} = props;
+
+    const deletePerson = (personId) => {
+        axios.delete('http://localhost:8001/api/people' + personId)
+            .then(res => {
+                removeFromDom(personId);
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
     
 
     useEffect(() => {
@@ -37,6 +48,9 @@ const PersonList = (props) => {
                         <p key={index}>{person.firstName}</p>
                         <p key={index}>{person.lastName}</p>
                         <Link to={`/people/${person._id}`}>{person.firstName}'s Page!</Link>
+                        <Link to={'/people/edit/' + person._id}> Edit</Link>
+                            |   
+                        <button onClick={(e) => {deletePerson(person._id)}}>Delete</button>
                     </div>
                 )
                 })

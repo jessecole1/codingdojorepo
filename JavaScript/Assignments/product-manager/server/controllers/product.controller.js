@@ -23,3 +23,4 @@ module.exports.getProduct = (request, response) => {
         .then(product=>response.json(product))
         .catch(err=>response.json(err));
 }
+

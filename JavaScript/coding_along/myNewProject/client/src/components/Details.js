@@ -11,7 +11,9 @@ const Details = (props) => {
     useEffect(() => {
         axios.get('http://localhost:8001/api/people/' + id)
             .then(res => {
-                console.log(res.dada);
+                // console.log("res.data......");
+                console.log(res.data);
+                // console.log("res.data......");
                 setPerson(res.data)
             })
             .catch(err => {
