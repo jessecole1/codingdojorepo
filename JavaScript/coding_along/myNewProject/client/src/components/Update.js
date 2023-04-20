@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useNavigate, useParams} from 'react-router-dom';
+import PersonForm from '../components/PersonForm';
+import DeleteButton from '../components/DeleteButton';
 
 const Update = (props) => {
     const {id} = useParams();
-    const [firstName, setFirstName] = useState();
-    const [lastName, setLastName] = useState();
+    // const [firstName, setFirstName] = useState();
+    // const [lastName, setLastName] = useState();
+    const [person, setPerson] = useState({});
     const navigate = useNavigate();
+    const [loaded, setLoaded] = useState(false);
     console.log("id...");
     console.log(id);
     console.log("id...");
@@ -18,43 +22,37 @@ const Update = (props) => {
             console.log("res.data......");
             console.log(res);
             console.log("res.data......");
-            setFirstName( res.data.firstName );
-            setLastName( res.data.lastName );
+            // setFirstName( res.data.firstName );
+            // setLastName( res.data.lastName );
+            setPerson(res.data);
+            setLoaded(true);
         })
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
     }, []);
-    console.log('get method...');
-    console.log(firstName);
+    // console.log('get method...');
+    // console.log(firstName);
 
-    const updatePerson = (e) => {
-        e.preventDefault();
+    const updatePerson = personParam => {
+        // e.preventDefault();
         console.log("heya");
-        axios.put('http://localhost:8001/api/people/' + id, {
-            firstName: firstName,
-            lastName: lastName
-        })
-            .then(res => {
-                console.log('before nav');
-                navigate('/people');
-                console.log("after nav");
-            })
-            .catch(err => console.log(err))
+        axios.put('http://localhost:8001/api/people/' + id, personParam)
+            .then(res => 
+                console.log(res),
+                navigate('/people')
+            );
+            // .catch(err => console.log(err))
     }
 
     return (
         <div>
             <h1>Update Person</h1>
-            <form onSubmit={updatePerson}>
-                <p>
-                    <label>First Name</label><br/>
-                    <input type="text" name="firstName" value={firstName} onChange={(e) => {setFirstName(e.target.value)}}/>
-                </p>
-                <p>
-                    <label>Last Name</label><br/>
-                    <input type="text" name="lastName" value={lastName} onChange={(e) => {setLastName(e.target.value)}}/>
-                </p>
-                <input type="submit"/>
-            </form>
+            {
+                loaded && (
+                <>
+                <PersonForm onSubmitProp={updatePerson} initialFirstName={person.firstName} initialLastName={person.lastName} />
+                <DeleteButton personId={person._id} successCallBack={() => navigate('/people')} />
+                </>
+            )}
         </div>
     )
 }

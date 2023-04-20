@@ -21,37 +21,29 @@
 // PART II - Codeblock 6
 
 import React, {useState} from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 const PersonForm = (props) => {
-    const {people, setPeople} = props; // PART III - Codeblock 7
-    const [firstName, setFirstName] = useState('');
-    const [lastname, setLastName] = useState('');
+    // const {people, setPeople} = props; 
+    // PART III - Codeblock 7
+    const {initialFirstName, initialLastName, onSubmitProp} = props;
+    const [firstName, setFirstName] = useState(initialFirstName);
+    const [lastName, setLastName] = useState(initialLastName);
 
-    const submitHandler = (e) => {
+    const onSubmitHandler = e => {
         e.preventDefault();
-        axios.post('http://localhost:8001/api/people', {
-            firstName: firstName,
-            lastName: lastname
-        })
-            .then(res=>{
-                // console.log(res);
-                // console.log(res.data);
-                setPeople([...people, res.data]); // PART III - Codeblock 7
-            })
-            .catch(err=>console.log(err))
-
+        onSubmitProp({firstName, lastName});
     }
 
     return (
-        <form onSubmit={submitHandler}>
+        <form onSubmit={onSubmitHandler}>
             <p>
                 <label>First Name: </label>
-                <input type="text" onChange={(e) => setFirstName(e.target.value)} />
+                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
             </p>
             <p>
                 <label>Last Name: </label>
-                <input type="text" onChange={(e) => setLastName(e.target.value) } />
+                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value) } />
             </p>
             <input type="submit"/>
         </form>
