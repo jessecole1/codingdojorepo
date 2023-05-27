@@ -25,6 +25,11 @@ function App() {
         lastName={"Smith"}
         age={"62"}
         hairColor={"Brown"} />
+      <Person 
+        firstName={"Jesse"}
+        lastName={"Cole"}
+        age={"29"}
+        hairColor={"Dark Brown"} />
     </div>
   );
 }
