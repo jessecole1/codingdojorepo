@@ -14,6 +14,6 @@ require('./config/mongoose.config');
 
 const port = 8000;
 
-require('./routes/product.routes')(app);
+require('./routes/product.routes')(app)
 
 app.listen(port, () => {console.log(`Listening on port: ${port}`)});

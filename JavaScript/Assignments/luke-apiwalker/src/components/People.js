@@ -9,11 +9,13 @@ import axios from 'axios';
 const People = (props) => {
     // These are the getters and setters 
     const {id} = props;
-    console.log(props);
+    console.log("PROPS: " + props);
     const [apiData, setApiData] = useState({});
     const [homeworld, setHomeworld] = useState("");
     const [homeworldId, setHomeworldId] = useState();
     const [isError, setIsError] = useState(false);
+
+    console.log("ID: " + id);
 
 
 // -----------------------------------------------------------------
@@ -23,7 +25,7 @@ const People = (props) => {
       .then((response) => {
         setIsError(false);
         setApiData(response.data);
-        getHomeworldId(response.data.homeworld);
+        // getHomeworldId(response.data.homeworld);
         axios.get(response.data.homeworld)
             .then((homeworldRes) => {
                 setHomeworld(homeworldRes.data.name);
@@ -37,17 +39,17 @@ const People = (props) => {
       });
     }, [props]);
 
-    const getHomeworldId = (homeworldURL) => {
-        if (homeworldURL.charAt(homeworldURL.length - 3) === "/") {
-            const hwId = homeworldURL.charAt(homeworldURL.length -2);
-            setHomeworldId(hwId);
-        } else {
-            const firstCharId = homeworldURL.charAt(homeworldURL.length -3);
-            const secondCharId = homeworldURL.charAt(homeworldURL.length - 2);
-            const idString = `${firstCharId}${secondCharId}`;
-            setHomeworldId(idString);
-        }
-    };
+    // const getHomeworldId = (homeworldURL) => {
+    //     if (homeworldURL.charAt(homeworldURL.length - 3) === "/") {
+    //         const hwId = homeworldURL.charAt(homeworldURL.length -2);
+    //         setHomeworldId(hwId);
+    //     } else {
+    //         const firstCharId = homeworldURL.charAt(homeworldURL.length -3);
+    //         const secondCharId = homeworldURL.charAt(homeworldURL.length - 2);
+    //         const idString = `${firstCharId}${secondCharId}`;
+    //         setHomeworldId(idString);
+    //     }
+    // };
     
 
     if (!isError) {
@@ -58,9 +60,9 @@ const People = (props) => {
             <p>Hair Color: {apiData.hair_color}</p>
             <p>Eye Color: {apiData.eye_color}</p>
             <p>Skin Color: {apiData.skin_color}</p>
-            <p>Homeworld: {homeworld}</p>
+            {/* <p>Homeworld: {homeworld}</p> */}
             {/* <p> */}
-            <Link to={`/planets/${homeworldId}`}>homeworld</Link>
+            {/* <Link to={`/planets/${homeworldId}`}>homeworld</Link> */}
             {/* </p> */}
           </div>
         );

@@ -46,26 +46,46 @@ class SLL {
         return this.head.data;
     }
     display() {
-        const listString = '';
+        let listString = '';
         if(this.head == null) {
             return "";
         }
-
-        listString += this.head.value;
-        var runner = this.head.next;
+        
+        listString += this.head.data;
+        let runner = this.head.next;
         while (runner != null) {
-            listStr + ", " + runner.value;
+            listString += ", " + runner.data;
             runner = runner.next;
         }
-        return listStr;
+        return listString;
     }
+
+    // reverseList() {
+    //     let prev = null;
+    //     while(this.head !== null) {
+    //         let nextNode = this.head.next;
+    //         this.head.next = prev;
+    //         prev = this.head;
+    //         this.head = nextNode;
+    //     }
+    //     return prev;
+    // }
 }
 
 SLL1 = new SLL();
-SLL1.addFront(18);
+SLL1.addFront(1);
+SLL1.addFront(2);
+SLL1.addFront(3);
+SLL1.addFront(4);
 SLL1.addFront(5);
-SLL1.addFront(73);
-SLL1.removeFrontTwo();
-SLL1.removeFrontTwo();
+// console.log(SLL1.display());
+// console.log(SLL1.reverseList());
+// console.log(SLL1.display());
+console.log(SLL1);
+
 // SLL1.removeFrontTwo();
-console.log(SLL1.front());
+// console.log(SLL1);
+// console.log(SLL1);
+// SLL1.removeFrontTwo();
+// SLL1.removeFrontTwo();
+// console.log(SLL1.front());
